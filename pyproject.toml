@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "remove-duplicates"
+version = "0.1.0"
+description = ""
+authors = ["Ana Riera <annriera@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "1.5.2"
+openpyxl = "^3.1.2"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
