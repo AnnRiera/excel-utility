@@ -1,26 +1,22 @@
-import pandas as pd
 import re
+import pandas as pd
+from config import config
 
-main_path = '/Users/ana/Downloads'
-file_path = '%s/TABLA NOMBRES PRODUCTOS - RAPV 17-07-2023.xlsx' % (main_path)
-pd_file = pd.ExcelFile(file_path)
-result_path = '%s/result-name-products.xlsx' % (main_path)
+pd_file = pd.ExcelFile(config.SOURCE_FILE)
 
 def combine_sheets():
-    pattern = '^WM'
-    
     combined_data = []
     for sheet in pd_file.sheet_names:
-        if re.match(pattern, sheet):
-            data_frame = pd.read_excel(file_path, sheet_name = sheet)
+        if re.match(config.REGEX_PATTERN, sheet):
+            data_frame = pd.read_excel(config.SOURCE_FILE, sheet_name = sheet)
             combined_data.append(data_frame)
         
     result_file = pd.concat(combined_data, ignore_index = True)
     create_file(result_file)
     
 def create_file(file: pd.DataFrame):
-    file.to_excel(result_path, index = False)
-    print('All sheets were combined to', result_path)
+    file.to_excel(config.TARGET_FILE, index = False)
+    print('All sheets were combined to', config.TARGET_FILE)
 
 # def remove_duplicates():
 #     try:
