@@ -5,4 +5,4 @@
 poetry.lock
 
 # Files
-/remove-duplicates/assets
+/remove-duplicates/assets/*.xlsx
