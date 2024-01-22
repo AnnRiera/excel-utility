@@ -22,6 +22,7 @@ def remove_duplicates():
     try:
         data = pd.read_excel(config.TARGET_FILE)
         data.drop_duplicates(keep="first", inplace=True)
+        create_file(data)
         print('All duplicate rows were removed.')
     except Exception as error:
         print("Something went wrong", error)
