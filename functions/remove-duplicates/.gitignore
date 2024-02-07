@@ -1,0 +1,8 @@
+# Environment
+.env
+
+# Poetry
+poetry.lock
+
+# Files
+/remove-duplicates/assets/*.xlsx
